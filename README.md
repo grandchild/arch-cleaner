@@ -8,7 +8,7 @@ This script goes through all explicitly installed packages. For each package it 
 Have a look at the flags, since the default behaviour might not do all you want, and might not be most convenient for you.
 
 ```
-usage: ./uninstall_selector.py [-h] [-c] [-d] [--core] [--version]
+usage: ./arch-cleaner.py [-h] [-c] [-d] [--core] [--version]
 
 -h, --help       show this help message and exit
 -c, --collect    don't delete right away, store and delete on SIGTERM or
