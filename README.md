@@ -10,12 +10,12 @@ Have a look at the flags, since the default behaviour might not do all you want,
 ```
 usage: ./arch-cleaner.py [-h] [-c] [-d] [--core] [--version]
 
--h, --help       show this help message and exit
--c, --collect    don't delete right away, store and delete on SIGTERM or
-                 finish.
--d, --show-desc  don't ask to show description, do it right away.
---core           suggest packages from core repository as well.
---version        show program's version number and exit
+-h, --help            show this help message and exit
+-c, --collect         don't delete right away, store and delete on SIGTERM or finish.
+-d, --show-desc       don't ask to show description, show it right away.
+-n, --remove-configs  remove configuration and other normally backupped files.
+--core                suggest packages from core repository as well.
+--version             show program's version number and exit
 ```
 
 ### License

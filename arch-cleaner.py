@@ -18,7 +18,8 @@ def parse():
 		description="List all installed Arch packages and ask to remove them.",
 	)
 	parser.add_argument("-c", "--collect", default=False, action="store_true", help="don't delete right away, store and delete on SIGTERM or finish.")
-	parser.add_argument("-d", "--show-desc", default=False, action="store_true", help="don't ask to show description, do it right away.")
+	parser.add_argument("-d", "--show-desc", default=False, action="store_true", help="don't ask to show description, show it right away.")
+	parser.add_argument("-n", "--remove-configs", default=False, action="store_true", help="remove configuration and other normally backupped files.")
 	parser.add_argument("--core", default=False, action="store_true", help="suggest packages from core repository as well.")
 	parser.add_argument("--version", action="version", version="{} {}".format(parser.prog, __VERSION__))
 	return parser.parse_args()
@@ -83,8 +84,11 @@ def main():
 						description = "{}: {}".format(package, line)
 				choice = choose("{}. --- Uninstall? [y/N]".format(description))
 				if choice in ["y", "Y"]:
-					choice = choose("Remove configuration files as well? [y/N]")
-					removeConfigs = choice in ["y", "Y"]
+					if not args.remove_configs:
+						choice = choose("Remove configuration files as well? [y/N]")
+						removeConfigs = choice in ["y", "Y"]
+					else:
+						removeConfigs = True
 					if args.collect:
 						if removeConfigs:
 							packagesForDeletionWithConfigs.append(name)
