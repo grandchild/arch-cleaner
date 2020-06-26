@@ -76,7 +76,7 @@ def main():
 				except ValueError as ve:
 					print("Unexpected mismatch in package name string:", str(ve), "({})".format(match.groups()))
 					continue
-				info = run("yaourt -Qi {}".format(name)).splitlines()
+				info = run("pacman -Qi {}".format(name)).splitlines()
 				for line in info:
 					if line.startswith("Description"):
 						line = re.match("Description +: (.+)", line).group(1)
