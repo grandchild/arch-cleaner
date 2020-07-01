@@ -4,6 +4,9 @@ Interactively uninstall arch packages that you forgot you ever had installed.
 ### Description
 This script goes through all explicitly installed packages. For each package it will ask you to show the description and/or if you want to uninstall it.
 
+### Dependencies
+* [package-query](https://aur.archlinux.org/packages/package-query)
+
 ### Usage
 Have a look at the flags, since the default behaviour might not do all you want, and might not be most convenient for you.
 
